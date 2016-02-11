@@ -6,10 +6,15 @@ module.exports = function(grunt) {
       options:{
         separator: ';',
       },
-      dist: {
-        src: ['public/**/*.js', 'app/**/*.js', 'app/*.js', 'lib/*.js', '*.js'], //later may want to switch to be all the files, including node modules?
+      built: {
+        src: ['public/client/*.js'], //later may want to switch to be all the files, including node modules?
         dest: 'public/dist/built.js'
+      },
+      lib: {
+        src: ['public/lib/*.js'],
+        dest: 'public/dist/lib.js'
       }
+
     },
 
     mochaTest: {
@@ -28,6 +33,14 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target:{
+        files: {
+          'public/dist/built.min.js' : ['public/dist/built.js'],
+          'public/dist/lib.min.js' : ['public/dist/lib.js']
+          // 'public/dist/style.min.css' : ['public/style.css']
+        }
+
+      }
     },
 
     eslint: {
@@ -37,6 +50,11 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      target: {
+        files: {
+          'public/dist/style.min.css' : ['public/style.css']
+        }
+      }
     },
 
     watch: {
