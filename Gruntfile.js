@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       built: {
-        src: ['public/client/*.js'], //later may want to switch to be all the files, including node modules?
+        src: ['public/client/*.js'],
         dest: 'public/dist/built.js'
       }
     },
@@ -42,10 +42,9 @@ module.exports = function(grunt) {
       }
     },
 
-    eslint: {
-      target: [
-        // Add list of files to lint here
-      ]
+    eslint: { 
+      
+      target: ['app/*', 'lib/*']
     },
 
     cssmin: {
@@ -105,13 +104,6 @@ module.exports = function(grunt) {
     grunt.task.run([ 'watch' ]);
   });
 
-  grunt.registerTask('upload', function(n) {
-    if (grunt.option('prod')) {
-      // add your production server task here
-    }
-    grunt.task.run([ 'server-dev' ]);
-  });
-
   ////////////////////////////////////////////////////
   // Main grunt tasks
   ////////////////////////////////////////////////////
@@ -120,20 +112,26 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('build', [ 
+    'clean', 'concat', 'uglify', 'cssmin', 'mochaTest'
   ]);
 
   grunt.registerTask('upload', function(n) {
-    if (grunt.option('prod')) {
+    if (grunt.option('prod')) { 
+      // grunt.task.run(['shell:prodServer']);
       // add your production server task here
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
-  grunt.registerTask('deploy', [
-    // add your deploy tasks here
-  ]);
+  grunt.registerTask('deploy', function (n) {
+    if (grunt.option('prod')) { 
+      grunt.task.run(['shell:prodServer']);
+    } else {
+      grunt.task.run(['build', 'upload'])
+    }
+  });
 
 
 };
