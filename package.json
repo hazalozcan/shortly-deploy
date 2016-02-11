@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "grunt-concat-in-order": "^0.1.6",
+    "grunt-contrib-clean": "^0.7.0",
     "supertest": "^0.10.0"
   }
 }
