@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['/public/**/*.js', '/app/**/*.js', '/app/*.js', '/lib/*.js', '/*.js'], //later may want to switch to be all the files, including node modules?
-        dest: '/dist/built.js'
+        src: ['public/**/*.js', 'app/**/*.js', 'app/*.js', 'lib/*.js', '*.js'], //later may want to switch to be all the files, including node modules?
+        dest: 'dist/built.js'
       }
     },
 
