@@ -3,6 +3,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      options:{
+        separator: ';',
+      },
+      dist: {
+        src: ['/public/**/*.js', '/app/**/*.js', '/app/*.js', '/lib/*.js', '/*.js'], //later may want to switch to be all the files, including node modules?
+        dest: '/dist/built.js'
+      }
     },
 
     mochaTest: {
