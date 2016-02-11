@@ -32,6 +32,7 @@
     "sqlite3": "~3.0.10"
   },
   "devDependencies": {
+    "grunt-concat-in-order": "^0.1.6",
     "supertest": "^0.10.0"
   }
 }

@@ -9,12 +9,7 @@ module.exports = function(grunt) {
       built: {
         src: ['public/client/*.js'], //later may want to switch to be all the files, including node modules?
         dest: 'public/dist/built.js'
-      },
-      lib: {
-        src: ['public/lib/*.js'],
-        dest: 'public/dist/lib.js'
       }
-
     },
 
     mochaTest: {
@@ -33,13 +28,17 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        mangle: false
+      },
       my_target:{
         files: {
           'public/dist/built.min.js' : ['public/dist/built.js'],
-          'public/dist/lib.min.js' : ['public/dist/lib.js']
-          // 'public/dist/style.min.css' : ['public/style.css']
+          'public/dist/backbone.min.js' : ['public/lib/backbone.js'],
+          'public/dist/handlebars.min.js' : ['public/lib/handlebars.js'],
+          'public/dist/jquery.min.js' : ['public/lib/jquery.js'],
+          'public/dist/underscore.min.js' : ['public/lib/underscore.js'],
         }
-
       }
     },
 
@@ -89,6 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-concat-in-order');
 
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
