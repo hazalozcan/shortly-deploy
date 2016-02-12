@@ -92,12 +92,13 @@ describe('', function() {
 
       beforeEach(function(done) {
         link = new Link({
+          _id: Math.floor(Math.random() * 1000000000),
           url: 'http://www.roflzoo.com/',
           title: 'Funny pictures of animals, funny dog pictures',
           baseUrl: 'http://127.0.0.1:4568',
           visits: 0
         });
-
+        link.initialize();
         link.save(function() {
           done();
         });
@@ -208,11 +209,15 @@ describe('', function() {
   describe('Account Login:', function() {
 
     beforeEach(function(done) {
-      new User({
+      var user = new User({
         'username': 'Phillip',
         'password': 'Phillip'
-      }).save(function() {
-        done();
+      });
+      user.initialize(function() {
+        console.log('password:',user.password);
+        user.save(function() {
+          done();
+        });
       });
     });
 
