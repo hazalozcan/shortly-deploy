@@ -1,7 +1,8 @@
 var path = require('path');
 // var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
-var url = 'mongodb://localhost:4568/test';
+
+var url = 'mongodb://127.0.0.1';
 mongoose.connect(url);
 // var assert = require('assert');
 

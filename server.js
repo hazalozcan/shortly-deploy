@@ -38,3 +38,6 @@ console.log('Server now listening on port ' + port);
 // -----END RSA PRIVATE KEY-----
 
 // ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyslshZiqFaqQkMnN4L8+CM8P/YDTbZSTxlsMGBQwo4x15iYLz3HZMxFR2dRiBa5UAfQ8RnSMraRErxX4Kktc11zQ8TsO3l7QnpWyRmciDyLrbAJtbrz7TtPlR3yi/5+tK5NTupiwEkvQ7R2ugWo2yp2p6mg6Xiyszl05fiQtvUmSDzMZcBjfc0NeXNwehzDvpCAkjDK2KSr7wzAbhoAL5ysZmKz1qG7a2O6buRxmsDufx0l2QlCPh1isKH3WtXBS597tltdtSRvqiy4L8RmW98gPE2CO5NoSJtQE4ePPkglUJ3dL5QwNviH01WZb9XzzDNXf1TeJsYi4BYb8tFDYh student@HR6-08.local
+
+//for running mongo: 
+// mongod --dbpath=/Users/student/Desktop/shortly-deploy/db  
